@@ -62,4 +62,17 @@ tx_done_out =>
 
 );
 
+uart_rx_map : uart_rx
+generic map(
+CLK_FREQ => 100000000,
+BAUD_RATE => 115200
+);
+port map (
+CLK => CLK,
+RST_IN => RST_IN,
+
+
+);
+
+
 end behavioral;
