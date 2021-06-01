@@ -3,32 +3,32 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity uart_rx is
+entity UART_RX is
 generic (
-        CLK_FREQ        : INTEGER := 100_000_000;  
-        BAUD_RATE       : INTEGER := 115_200     
+        CLK_FREQ        :       INTEGER := 100_000_000;  
+        BAUD_RATE       :       INTEGER := 115_200     
 );
 port (
-        CLK             : IN STD_LOGIC;                         
-        RST_IN          : IN STD_LOGIC;                            
-        RX_IN           : IN STD_LOGIC;                       
-        RX_OUT          : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);        
-        RX_DONE_OUT     : OUT STD_LOGIC   
+        CLK             :       IN STD_LOGIC;                         
+        RST_IN          :       IN STD_LOGIC;                            
+        RX_IN           :       IN STD_LOGIC;
+                               
+        RX_OUT          :       OUT STD_LOGIC_VECTOR (7 DOWNTO 0);        
+        RX_DONE_OUT     :       OUT STD_LOGIC   
 );
-end uart_rx;
+end UART_RX;
 
-architecture Behavioral of uart_rx is
+architecture Behavioral of UART_RX is
 
 type states is (IDLE, START, RECEIVE, STOP);
-signal state : states := IDLE; 
-constant clock_count_lim : integer := CLK_FREQ/BAUD_RATE+1; 
+signal state                :   states  :=  IDLE; 
+constant clock_count_lim    :   integer :=  CLK_FREQ/BAUD_RATE+1; 
 
-
-signal clock_counter : integer range 0 to (clock_count_lim)-1 := 0;
-signal data_index : integer range 0 to 7 := 0;
-signal data : std_logic_vector(7 downto 0) := (others=>'0');
-signal shift_start_receive : std_logic_vector(2 downto 0) := (others=>'0');
-signal rx_done : std_logic := '0';
+signal clock_counter        :   integer range 0 to (clock_count_lim)-1 := 0;
+signal data_index           :   integer range 0 to 7 := 0;
+signal data                 :   std_logic_vector(7 downto 0) := (others=>'0');
+signal shift_start_receive  :   std_logic_vector(2 downto 0) := (others=>'0');
+signal rx_done : std_logic  :=  '0';
 
 begin
     RX_OUT      <=  data;
