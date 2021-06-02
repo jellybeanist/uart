@@ -50,14 +50,14 @@ architecture Behavioral of UART is
     signal i_tx_buf_wren        : std_logic := '0';
     signal i_tx_buf_data        : std_logic_vector(7 downto 0):= (others => '0');
     
-    ATTRIBUTE MARK_DEBUG : string;
-    ATTRIBUTE MARK_DEBUG of i_rx_buf_empty: SIGNAL IS "TRUE";
-    ATTRIBUTE MARK_DEBUG of i_rx_buf_rden: SIGNAL IS "TRUE";
-    ATTRIBUTE MARK_DEBUG of i_rx_buf_data: SIGNAL IS "TRUE";
-    ATTRIBUTE MARK_DEBUG of i_tx_buf_full: SIGNAL IS "TRUE";
-    ATTRIBUTE MARK_DEBUG of i_tx_buf_wren: SIGNAL IS "TRUE";
-    ATTRIBUTE MARK_DEBUG of i_tx_buf_data: SIGNAL IS "TRUE";
-    ATTRIBUTE MARK_DEBUG of i_clk100: SIGNAL IS "TRUE";
+    --ATTRIBUTE MARK_DEBUG : string;
+    --ATTRIBUTE MARK_DEBUG of i_rx_buf_empty: SIGNAL IS "TRUE";
+    --ATTRIBUTE MARK_DEBUG of i_rx_buf_rden: SIGNAL IS "TRUE";
+    --ATTRIBUTE MARK_DEBUG of i_rx_buf_data: SIGNAL IS "TRUE";
+    --ATTRIBUTE MARK_DEBUG of i_tx_buf_full: SIGNAL IS "TRUE";
+    --ATTRIBUTE MARK_DEBUG of i_tx_buf_wren: SIGNAL IS "TRUE";
+    --ATTRIBUTE MARK_DEBUG of i_tx_buf_data: SIGNAL IS "TRUE";
+    --ATTRIBUTE MARK_DEBUG of i_clk100: SIGNAL IS "TRUE";
 
 begin
     U0_Alive : process (i_clk100) 
