@@ -66,16 +66,16 @@ begin
 U3: process (i_clk100)
         begin
         
-        if ((u0_i_rx_f_empty = '0')) then--and (u0_i_rx_f_dout = x"0A")) then
+        --if ((u0_i_rx_f_empty = '0')) then--and (u0_i_rx_f_dout = x"0A")) then
                             u1_i_tx_f_wr_en  <= (not u0_i_rx_f_empty) and (not u1_i_tx_f_full);
                             u0_i_rx_f_ren    <= (not u0_i_rx_f_empty);
                             u1_i_tx_f_din    <= (u0_i_rx_f_dout);
                             
-        elsif ((u1_i_rx_f_empty = '0')) then -- and (u1_i_rx_f_dout = x"BB")) then                   
+        --elsif ((u1_i_rx_f_empty = '0')) then -- and (u1_i_rx_f_dout = x"BB")) then                   
                             u0_i_tx_f_wr_en  <= (not u1_i_rx_f_empty) and (not u0_i_tx_f_full);
                             u1_i_rx_f_ren    <= (not u1_i_rx_f_empty);
                             u0_i_tx_f_din    <= (u1_i_rx_f_dout);     
-        end if;
+        --end if;
     end process;
 --    U1: process (i_clk100) begin
 --        case state is
